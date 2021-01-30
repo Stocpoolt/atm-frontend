@@ -1,7 +1,7 @@
 {
-  "name": "cajero-frontend",
+  "name": "atm-frontend",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Parte front del proyecto \"ATM\"",
   "author": "Stocpoolt <stocpoolt@gmail.com>",
   "private": true,
   "scripts": {
@@ -12,12 +12,10 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/vue-fontawesome": "^2.0.2",
-    "axios": "^0.21.0",
-    "express": "^4.17.1",
-    "server-static": "^2.0.5",
+    "@fortawesome/vue-fontawesome": "^3.0.0-3",
+    "axios": "^0.21.1",
     "vue": "^2.5.2",
-    "vue-router": "^3.4.9"
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

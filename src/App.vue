@@ -5,9 +5,10 @@
         <h1>National University Bank</h1>
         <nav>
           <button v-on:click="init" v-if="is_auth" ><font-awesome-icon icon="home"/> Home</button>
-          <button v-on:click="getBalance" v-if="is_auth" ><font-awesome-icon icon="money-bill" class="mr-2"/> Saldo </button>
-          <button v-on:click="doTransaction" v-if="is_auth" ><font-awesome-icon icon="credit-card" class="mr-2"/> Transacción </button>
-          <button v-on:click="logOut" v-if="is_auth" ><font-awesome-icon icon="door-open"/> Cerrar sesión</button>
+          <button v-on:click="getBalance" v-if="is_auth" ><font-awesome-icon icon="money-bill" class="mr-2"/>Balance</button>
+          <button v-on:click="doTransaction" v-if="is_auth" ><font-awesome-icon icon="credit-card" class="mr-2"/>Transaction</button>
+          <button v-on:click="logOut" v-if="is_auth" ><font-awesome-icon icon="door-open"/>Sign off</button>
+          <button v-on:click="logOut" v-if="is_auth" >Contact</button>
         </nav>
       </div>
       <div class="main-component">
@@ -32,10 +33,8 @@ export default {
         is_auth: localStorage.getItem('isAuth') || false
       }    
   },
-
   components: {
   },
-
   methods:{
     updateAuth: function(){
       var self = this
@@ -49,42 +48,33 @@ export default {
         self.$router.push({name: "user", params:{ username: username }})
       }  
     },
-
     logIn: function(username){
       localStorage.setItem('current_username', username)
       localStorage.setItem('isAuth', true)
       this.updateAuth()
     },
-
     logOut: function(){
       localStorage.removeItem('isAuth')
       localStorage.removeItem('current_username')
       this.updateAuth()
     },
-
     init: function(){
       if(this.$route.name != "user"){
         let username = localStorage.getItem("current_username")
         this.$router.push({name: "user", params:{ username: username }})
       }
-      
     },
-
     getBalance: function(){
       if(this.$route.name != "user_balance"){
         let username = localStorage.getItem("current_username")
         this.$router.push({name: "user_balance", params:{ username: username }})
       }
     },
-
-
     doTransaction: function(){
-      
-        let username = localStorage.getItem("current_username")
-        this.$router.push({name: "user_transaction", params:{ username: username }})
+      let username = localStorage.getItem("current_username")
+      this.$router.push({name: "user_transaction", params:{ username: username }})
     }
   },
-
   created: function(){
     this.$router.push({name: "root"})
     this.updateAuth()
@@ -104,17 +94,15 @@ export default {
     width: 100%;
     height: 10vh;
     min-height: 100px;
-
-    background-color: #700505 ;
+    background-color: #000314c5 ;
     color:#E5E7E9 ;
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   /* Distancia entre el borde y el titulo (NU Bank) */
   .header h1{
-    width: 20%;
+    width: 30%;
     text-align: center;
   }
   .header nav {
@@ -130,17 +118,16 @@ export default {
     /* Color letra de botón; del botón; del borde */
     color: #fff;
     display: inline-block;
-    border: 5px solid transparent;
+    border: 1px solid transparent;
     line-height: 1.5;
     margin-top: .25rem;
     margin-bottom: .25rem;
     font-weight: 1000;
     border-radius: 2em;
     padding: .375rem .75rem;
-    background-color: #ad1010;
-    border-color: #a03737;
-    width: 180px;
-    
+    background-color: #000314c5;
+    border-color: #f7f7f7e0;
+    width: 130px;
     /* Redondes del borde del botón; ancho y alto */
     border-radius: 5px;
     padding: 10px 20px;
@@ -162,7 +149,7 @@ export default {
     height: 10vh;
     min-height: 100px;
     /* Color parte de abajo; letra de dicha parte */
-    background-color: #700505;
+    background-color: #000314c5;
     color: #E5E7E9;
   }
   .footer h2{
@@ -173,7 +160,7 @@ export default {
     align-items: center;
   }
   .fondo{
-    background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url('../src/assets/principal.jpg');
+    background-image: linear-gradient(rgba(19, 45, 94, 0.65), rgba(80, 34, 13, 0.65)), url('../src/assets/principal.jpg');
     width: 100%;
     height: 100vh;
     background-size: cover;
