@@ -1,10 +1,12 @@
 import vueRouter from 'vue-router'
 
+
 import User from './components/User'
 import UserAuth from './components/UserAuth'
 import UserBalance from './components/UserBalance'
 import UserTransaction from './components/UserTransaction'
 import App from './App'
+
 
 const router = new vueRouter({
         mode: 'history',
@@ -37,5 +39,7 @@ const router = new vueRouter({
             },
         ]
     })
+
+
 
 export default router

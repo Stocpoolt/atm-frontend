@@ -3,7 +3,7 @@
         <div class="container_auth_user">
             <h1>Autenticarse</h1>
             <form v-on:submit.prevent="processAuthUser" >
-                <input type="text" v-model="user_in.username" placeholder="Insert your username">
+                <input type="text" v-model="user_in.username" placeholder="Insert your name">
                 <br>
                 <input type="password" v-model="user_in.password" placeholder="Insert your password">
                 <br>
@@ -26,10 +26,11 @@ export default {
             }
         }
     },
+
     methods: {
         processAuthUser: function(){
             var self = this
-            axios.post("http://127.0.0.1:8000/user/auth/", self.user_in,  {headers: {}})
+            axios.post("https://stocpoolt-atm-backend.herokuapp.com/user/auth/", self.user_in,  {headers: {}})
                 .then((result) => {
                     alert("Autenticación exitosa");
                     self.$emit('log-in', self.user_in.username)

@@ -43,7 +43,7 @@
     }
     /* Color letra nombre usuario */
     #User span{
-        color: #88390c;
+        color: #36b4ee;
         font-weight: bold;
         font-family: 'Raleway';
     }

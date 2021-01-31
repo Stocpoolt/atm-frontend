@@ -8,7 +8,6 @@
           <button v-on:click="getBalance" v-if="is_auth" ><font-awesome-icon icon="money-bill" class="mr-2"/>Balance</button>
           <button v-on:click="doTransaction" v-if="is_auth" ><font-awesome-icon icon="credit-card" class="mr-2"/>Transaction</button>
           <button v-on:click="logOut" v-if="is_auth" ><font-awesome-icon icon="door-open"/>Sign off</button>
-          <button v-on:click="logOut" v-if="is_auth" >Contact</button>
         </nav>
       </div>
       <div class="main-component">
@@ -33,8 +32,10 @@ export default {
         is_auth: localStorage.getItem('isAuth') || false
       }    
   },
+
   components: {
   },
+
   methods:{
     updateAuth: function(){
       var self = this
@@ -48,33 +49,42 @@ export default {
         self.$router.push({name: "user", params:{ username: username }})
       }  
     },
+
     logIn: function(username){
       localStorage.setItem('current_username', username)
       localStorage.setItem('isAuth', true)
       this.updateAuth()
     },
+
     logOut: function(){
       localStorage.removeItem('isAuth')
       localStorage.removeItem('current_username')
       this.updateAuth()
     },
+
     init: function(){
       if(this.$route.name != "user"){
         let username = localStorage.getItem("current_username")
         this.$router.push({name: "user", params:{ username: username }})
       }
+      
     },
+
     getBalance: function(){
       if(this.$route.name != "user_balance"){
         let username = localStorage.getItem("current_username")
         this.$router.push({name: "user_balance", params:{ username: username }})
       }
     },
+
+
     doTransaction: function(){
-      let username = localStorage.getItem("current_username")
-      this.$router.push({name: "user_transaction", params:{ username: username }})
+      
+        let username = localStorage.getItem("current_username")
+        this.$router.push({name: "user_transaction", params:{ username: username }})
     }
   },
+
   created: function(){
     this.$router.push({name: "root"})
     this.updateAuth()
@@ -127,7 +137,7 @@ export default {
     padding: .375rem .75rem;
     background-color: #000314c5;
     border-color: #f7f7f7e0;
-    width: 130px;
+    width: 180px;
     /* Redondes del borde del botón; ancho y alto */
     border-radius: 5px;
     padding: 10px 20px;
