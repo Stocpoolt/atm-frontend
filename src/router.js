@@ -1,12 +1,10 @@
 import vueRouter from 'vue-router'
-
-
 import User from './components/User'
-import UserAuth from './components/UserAuth'
 import UserBalance from './components/UserBalance'
-import UserTransaction from './components/UserTransaction'
 import App from './App'
 
+import UserAuth from './components/UserAuth'
+import UserTransaction from './components/UserTransaction'
 
 const router = new vueRouter({
         mode: 'history',
@@ -23,14 +21,14 @@ const router = new vueRouter({
                 component: User
             },
             {
-                path: '/user/auth',
-                name: "user_auth",
-                component: UserAuth
-            },
-            {
                 path: '/user/balance/:username',
                 name: "user_balance",
                 component: UserBalance
+            },
+            {
+                path: '/user/auth',
+                name: "user_auth",
+                component: UserAuth
             },
             {
                 path: '/user/transaction/:username',
@@ -39,7 +37,5 @@ const router = new vueRouter({
             },
         ]
     })
-
-
 
 export default router
